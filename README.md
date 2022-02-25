@@ -1,4 +1,3 @@
-@@ -0,0 +1,58 @@
 # PAA5100JE Driver
 Driver for PixArt PAA5100JE driver. Tested on Teensy 4.0 board.
 Currently, there are 2 breakout boards on the market that I am aware of, from:
