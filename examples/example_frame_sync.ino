@@ -181,17 +181,16 @@ void loop()
 
 void syncFrameReadProcedure()
 {
-    SPI.beginTransaction(SPISettings(2000000, MSBFIRST, SPI_MODE3));
 
     for (int i = 0; i < 4; i++)
     {
+        SPI.beginTransaction(SPISettings(2000000, MSBFIRST, SPI_MODE3));
         // Set all OF CS pins low to write to all OF sensors registers at
         //  the same time.
         digitalWrite(OF1_CS_PIN, LOW);
         digitalWrite(OF2_CS_PIN, LOW);
         // digitalWrite(OF3_CS_PIN, LOW);
         // etc...
-        delayMicroseconds(1);
         delayMicroseconds(1);
         SPI.transfer(writeFrameSyncAdr_2[i]);
         SPI.transfer(writeFrameSyncVal_2[i]);
@@ -206,11 +205,11 @@ void syncFrameReadProcedure()
     delayMicroseconds(430);
     for (int i = 0; i < 2; i++)
     {
+        SPI.beginTransaction(SPISettings(2000000, MSBFIRST, SPI_MODE3));
         digitalWrite(OF1_CS_PIN, LOW);
         digitalWrite(OF2_CS_PIN, LOW);
         // digitalWrite(OF3_CS_PIN, LOW);
         // etc...
-        delayMicroseconds(1);
         delayMicroseconds(1);
         SPI.transfer(writeFrameSyncAdr_3[i]);
         SPI.transfer(writeFrameSyncVal_3[i]);
